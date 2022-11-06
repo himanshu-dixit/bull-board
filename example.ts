@@ -8,9 +8,10 @@ import { createBullBoard } from '@bull-board/api/src';
 import { ExpressAdapter } from '@bull-board/express/src';
 
 const redisOptions = {
-  port: 6379,
-  host: 'localhost',
-  password: '',
+  port: process.env.REDIS_PORT,
+  host: process.env.REDIS_HOST,
+  username: process.env.REDIS_USER,
+  password: process.env.REDIS_PASSWORD,
 };
 
 const sleep = (t: number) => new Promise((resolve) => setTimeout(resolve, t * 1000));

@@ -4,7 +4,7 @@ const {Queue} = require('bullmq');
 const { createBullBoard } = require('@bull-board/api');
 const { BullMQAdapter } = require('@bull-board/api/bullMQAdapter');
 const { ExpressAdapter } = require('@bull-board/express');
-const ioredis = require("ioredis");
+const IORedis = require("ioredis");
 
 
 const TEST_EXECUTION_QUEUE = "TEST_EXECUTION_QUEUE";

@@ -1,9 +1,7 @@
 // @ts-nocheck
 const express = require('express');
-const Queue = require('bull');
-const QueueMQ = require('bullmq');
+const Queue = require('bullmq');
 const { createBullBoard } = require('@bull-board/api');
-const { BullAdapter } = require('@bull-board/api/bullAdapter');
 const { BullMQAdapter } = require('@bull-board/api/bullMQAdapter');
 const { ExpressAdapter } = require('@bull-board/express');
 
@@ -13,7 +11,7 @@ const TEST_COMPLETE_QUEUE = "TEST_COMPLETE_QUEUE";
 
 
 
-const redisOptions: any = {
+const redisOptions = {
   port: process.env.REDIS_PORT,
   host: process.env.REDIS_HOST,
   username: process.env.REDIS_USER,
@@ -30,7 +28,7 @@ serverAdapter.setBasePath('/admin/queues');
 ;
 
 const { addQueue, removeQueue, setQueues, replaceQueues } = createBullBoard({
-  queues: [new BullAdapter(testExecutionQueue), new BullAdapter(videoProcessorQueue), new BullMQAdapter(testCompleteQueue)],
+  queues: [new BullMQAdapter(testExecutionQueue), new BullMQAdapter(videoProcessorQueue), new BullMQAdapter(testCompleteQueue)],
   serverAdapter: serverAdapter,
 });
 

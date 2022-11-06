@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Bull from 'bull';
 import Queue3 from 'bull';
 import { Queue as QueueMQ, QueueScheduler, Worker } from 'bullmq';
@@ -7,7 +8,7 @@ import { BullAdapter } from '@bull-board/api/src/queueAdapters/bull';
 import { createBullBoard } from '@bull-board/api/src';
 import { ExpressAdapter } from '@bull-board/express/src';
 
-const redisOptions = {
+const redisOptions: any = {
   port: process.env.REDIS_PORT,
   host: process.env.REDIS_HOST,
   username: process.env.REDIS_USER,
